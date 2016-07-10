@@ -1,29 +1,33 @@
 <p id="notice"><%= notice %></p>
+<div class="page-header">
+  <h1>Tous les status</h1>
+</div>
 
-<h1>Listing Statuses</h1>
+  <div class="row">
+    <div class="col-md-6">
+        <% @statuses.each do |status| %>
+          <div class="panel panel-default">
+            <div class="panel-body status">
+              <strong><%= status.name %> :</strong>
+              <p><%= status.content %></p>
+              <small><%= (status.created_at).strftime("Posté le %d/%m/%g") %></small>
+              <div class="admin">
+                <%= link_to 'Voir', status %> | <%= link_to 'Modifier', edit_status_path(status) %> | <%= link_to 'Supprimer', status, method: :delete, data: { confirm: 'Are you sure?' } %>
+              </div>
+              </div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+          </div>
+          <% end %>
+    </div>
+    <div class="col-md-6 text-right">
+      <%= link_to  new_status_path do %>
+        <div class="btn btn-primary">
+        <i class="fa fa-plus"></i> Nouveau
+        </div>
+      <% end %>
+    </div>
 
-  <tbody>
-    <% @statuses.each do |status| %>
-      <tr>
-        <td><%= status.name %></td>
-        <td><%= status.content %></td>
-        <td><%= link_to 'Show', status %></td>
-        <td><%= link_to 'Edit', edit_status_path(status) %></td>
-        <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  </div>
+
 
 <br>
-
-<%= link_to 'New Status', new_status_path %>
