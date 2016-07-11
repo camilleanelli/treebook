@@ -8,7 +8,7 @@
         <% @statuses.each do |status| %>
           <div class="panel panel-default">
             <div class="panel-body status">
-              <strong><%= status.name %> :</strong>
+              <strong><%= status.user.pseudoname %></strong>
               <p><%= status.content %></p>
               <small><%= (status.created_at).strftime("Posté le %d/%m/%g") %></small>
               <div class="admin">
