@@ -3,8 +3,8 @@
 
 
 <p>
-  <strong>Content:</strong>
-  <%= @status.content %>
+  <strong><%= @status.user.full_name %></strong> dit : 
+  <p><%= @status.content %></p>
 </p>
 
 <%= link_to 'Edit', edit_status_path(@status) %> |

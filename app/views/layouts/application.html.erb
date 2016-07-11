@@ -15,9 +15,20 @@
       <a class="navbar-brand" href="#">
         Treebook
       </a>
-      <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Status", statuses_path %></li>
-      </ul>
+      <% if user_signed_in? %>
+        <ul class="nav navbar-nav">
+          <li><%= link_to "Status", statuses_path %></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+          <li><%= link_to "Deconnexion", destroy_user_session_path, method: :delete %></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Se connecter", new_user_session_path %></li>
+          <li><%= link_to "Créer un compte", new_user_registration_path %></li>
+        </ul>
+      <% end %>
 
   </div>
 </nav>
