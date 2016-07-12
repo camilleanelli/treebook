@@ -7,20 +7,22 @@
         <% @statuses.each do |status| %>
           <div class="panel panel-default">
             <div class="panel-body status">
-              <strong><%= status.user.pseudoname %></strong>
-              <p><%= status.content %></p>
-              <small><%= (status.created_at).strftime("Posté le %d/%m/%g") %></small>
-              <div class="admin">
-                <%= link_to 'Voir', status %>
-                <% if status.status_of_user?(current_user) %>
-                | <%= link_to 'Modifier', edit_status_path(status) %> |
-                <%= link_to "<i class='fa fa-trash-o'></i> Supprimer".html_safe, status, method: :delete, data: { confirm: 'Are you sure?' } %>
-                <% end %>
+              <div class="col-md-2"><%= image_tag status.user.gravatar_url %></div>
+              <div class="col-md-10">
+                <strong><%= status.user.pseudoname %></strong>
+                <p><%= status.content %></p>
+                <small><%= (status.created_at).strftime("Posté le %d/%m/%g") %></small>
+                <div class="admin">
+                  <%= link_to 'Voir', status %>
+                  <% if status.status_of_user?(current_user) %>
+                  | <%= link_to 'Modifier', edit_status_path(status) %> |
+                  <%= link_to "<i class='fa fa-trash-o'></i> Supprimer".html_safe, status, method: :delete, data: { confirm: 'Are you sure?' } %>
+                  <% end %>
+                </div>
               </div>
-              </div>
-
+            </div>
           </div>
-          <% end %>
+        <% end %>
     </div>
     <div class="col-md-6 text-right">
       <%= link_to  new_status_path do %>
