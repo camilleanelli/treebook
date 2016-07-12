@@ -1,2 +1,17 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<div class="page-header">
+  <h1><%= @user.full_name %></h1>
+</div>
+
+<div class="col-md-6">
+  <% @statuses.each do |status| %>
+  <div class="well well-lg">
+    <p><%= status.content %></p>
+    <p><%= status.created_at %></p>
+  </div>
+  <% end %>
+</div>
+
+
+<div class="col-md-6 text-right">
+  <%= link_to "Ajouter un status", new_status_path, class:"btn btn-primary" %>
+</div>

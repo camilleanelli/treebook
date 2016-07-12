@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'profiles/show'
 
   devise_for :users
 
@@ -10,6 +9,7 @@ Rails.application.routes.draw do
 
   resources :statuses
 
+  get '/:id', to: 'profiles#show'
 
   root 'statuses#index'
   # The priority is based upon order of creation: first created -> highest priority.
