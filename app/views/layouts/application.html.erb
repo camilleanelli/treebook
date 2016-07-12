@@ -18,7 +18,7 @@
           <li><%= link_to "Accueil", statuses_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
-          <li><%= link_to current_user.full_name, edit_user_registration_path %></li>
+          <li><%= link_to current_user.full_name, profile_path(current_user) %></li>
           <li><%= link_to "Deconnexion", destroy_user_session_path, method: :delete %></li>
         </ul>
       <% else %>

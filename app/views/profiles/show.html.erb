@@ -1,17 +1,24 @@
 <div class="page-header">
-  <h1><%= @user.full_name %></h1>
+
+
+<h1><%= @user.full_name %></h1>
 </div>
 
-<div class="col-md-6">
-  <% @statuses.each do |status| %>
-  <div class="well well-lg">
-    <p><%= status.content %></p>
-    <p><%= status.created_at %></p>
+<div class="row">
+  <div class="col-md-2">
+    <%= image_tag(@user.gravatar_url, class:"img-circle") %>
   </div>
-  <% end %>
-</div>
+  <div class="col-md-6">
+    <% @statuses.each do |status| %>
+    <div class="well well-lg">
+      <p><%= status.content %></p>
+      <p><%= status.created_at %></p>
+    </div>
+    <% end %>
+  </div>
 
 
-<div class="col-md-6 text-right">
-  <%= link_to "Ajouter un status", new_status_path, class:"btn btn-primary" %>
+  <div class="col-md-4 text-right">
+    <%= link_to "Ajouter un status", new_status_path, class:"btn btn-primary" %>
+  </div>
 </div>
