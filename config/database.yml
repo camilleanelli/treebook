@@ -7,19 +7,19 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: syndiclib_dev
+  database: treebook
   username: postgres
   password: postgres
   host: localhost
-  timeout: 5000
+  timeout: 3000
   pool: 5
 
 test:
   adapter: postgresql
   encoding: unicode
-  database: syndiclib_test
+  database: tree_book_test
   username: postgres
   password: postgres
   host: localhost
-  timeout: 5000
+  timeout: 3000
   pool: 5
