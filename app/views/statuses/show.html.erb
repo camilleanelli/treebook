@@ -2,10 +2,12 @@
 
 
 
-<p>
-  <strong><%= @status.user.full_name %></strong> dit : 
-  <p><%= @status.content %></p>
-</p>
 
-<%= link_to 'Edit', edit_status_path(@status) %> |
-<%= link_to 'Back', statuses_path %>
+
+<div class="well well-sm">
+  <strong><%= @status.user.full_name %></strong> dit :
+  <p><%= @status.content %></p>
+</div>
+
+
+<%= link_to 'Modifier', edit_status_path(@status), class:"btn btn-primary" %> <%= link_to 'Retour', statuses_path, class: "btn btn-primary" %>
