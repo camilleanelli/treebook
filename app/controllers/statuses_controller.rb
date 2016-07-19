@@ -1,5 +1,4 @@
 class StatusesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_status, only: [:edit, :update, :destroy]
 
   # GET /statuses
@@ -16,7 +15,7 @@ class StatusesController < ApplicationController
 
   # GET /statuses/new
   def new
-    @status = Status.new
+    @status = current_user.statuses.new
   end
 
   # GET /statuses/1/edit
