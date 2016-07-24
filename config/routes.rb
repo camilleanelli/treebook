@@ -7,6 +7,7 @@ Rails.application.routes.draw do
     get 'register', to: 'devise/registrations#new', as: :register
   end
 
+  resources :user_friendships
   resources :statuses
 
   resources :profiles, only: [:show]
